@@ -12,7 +12,7 @@
 
 body {
     font-family: "Helvetica Neue", "Montserrat", "Arial", sans-serif;
-    background: var(--blue-gradient);
+    background: #f7f7f7;
     height: 100vh;
     max-height: 100vh;
     display: flex;

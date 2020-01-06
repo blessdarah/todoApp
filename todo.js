@@ -87,7 +87,7 @@ function updateUI(item) {
     $(".todo-items").appendChild(li);
     const check = li.querySelector(".check");
 
-    // check.addEventListener("click", (e) => {
-    //     deleteTodo(check.parentElement);
-    // })
+    check.addEventListener("click", (e) => {
+        deleteTodo(check.parentElement);
+    });
 }
