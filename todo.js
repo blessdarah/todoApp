@@ -19,7 +19,7 @@ input.addEventListener("keyup", e => {
     if(e.key === 'Enter') {
         // upadate locale storage with value
         updateListStore(e.target.value);
-
+        $(".empty").style.display = "none";
         // upadte ui
         updateUI(e.target.value);
 
@@ -80,7 +80,7 @@ function updateUI(item) {
     <input type="checkbox" class="check">
     <p>${item}</p>`;
 
-    const isEmpty = JSON.parse(localStorage.getItem("todos")).length < 1;
+    const isEmpty = JSON.parse(localStorage.getItem("todos")).length === 0;
     if(isEmpty) {
         $(".todo-items").innerHTML = "";
     }
