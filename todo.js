@@ -80,7 +80,7 @@ function updateUI(item) {
     <input type="checkbox" class="check">
     <p>${item}</p>`;
 
-    const isEmpty = JSON.parse(localStorage.getItem("todos")).length > 0;
+    const isEmpty = JSON.parse(localStorage.getItem("todos")).length < 1;
     if(isEmpty) {
         $(".todo-items").innerHTML = "";
     }
