@@ -1,0 +1,105 @@
+:root {
+    --shadow: 1px 2px 8px rgba(0,0,0,0.08);
+    --blue: #2E88C4;
+    --blue-gradient: linear-gradient(135deg, var(--blue), #00107C);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", "Montserrat", "Arial", sans-serif;
+    background: var(--blue-gradient);
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-container {
+    width: 320px;
+    height: 540px;
+    padding: 2rem 1.7rem .5rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    max-height: auto;
+    max-width: 100%;
+    background: white;
+}
+
+.todo-input {
+    font-family: inherit;
+    padding: .8em;
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #18181855;
+}
+
+.todo-items {
+    list-style: none;
+}
+
+.todo-item {
+    padding: .2rem .2rem 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px dotted #18181833;
+}
+
+.todo-item p {
+    font-size: .8em;
+    line-height: 1.5;
+    width: auto;
+    padding-left: 1em;
+}
+
+.todo-item .check {
+    display: inline-block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.check:checked ~ p {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.check {
+    position: relative;
+}
+
+.check::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    border: 1px solid steelblue;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+}
+
+.check:checked::after {
+    content: "\2713";
+    color: #006EB7;
+    font-weight: bold;
+}
+
+.empty {
+    padding: 1rem 0;
+    font-size: 2rem;
+    opacity: .4;
+}
