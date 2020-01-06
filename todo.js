@@ -2,10 +2,6 @@ const $ = element => document.querySelector(element) || undefined;
 const $all = element => document.querySelectorAll(element) || [];
 const create = element => document.createElement(element);
 
-const test = [3, 5, 8, 7, 4];
-
-console.log(test.includes(3));
-
 let todos = JSON.parse(localStorage.getItem("todos")); // empty todos by default
 
 // if nothing in local storage, show this
@@ -21,10 +17,13 @@ const input = $(".todo-input");
 
 input.addEventListener("keyup", e => {
     if(e.key === 'Enter') {
-
-        updateUI(e.target.value);
         // upadate locale storage with value
         updateListStore(e.target.value);
+
+        // upadte ui
+        updateUI(e.target.value);
+
+        // reset input field
         e.target.value = "";
         e.target.focus();
     }
@@ -36,7 +35,7 @@ todoCheckboxes.forEach(element => {
     element.addEventListener("click", (e) => {
         // TODO: change this to work for delete buttons
         // or when todo is swiped out of the page.
-        // deleteTodo(element.parentElement);
+        deleteTodo(element.parentElement);
     })
 })
 
@@ -81,6 +80,10 @@ function updateUI(item) {
     <input type="checkbox" class="check">
     <p>${item}</p>`;
 
+    const isEmpty = JSON.parse(localStorage.getItem("todos")).length > 0;
+    if(isEmpty) {
+        $(".todo-items").innerHTML = "";
+    }
     $(".todo-items").appendChild(li);
     const check = li.querySelector(".check");
 
