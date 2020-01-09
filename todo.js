@@ -19,7 +19,7 @@ input.addEventListener("keyup", e => {
     if(e.key === 'Enter') {
         // upadate locale storage with value
         updateListStore(e.target.value);
-        $(".empty").style.display = "none";
+        // $(".empty").style.display = "none";
         // upadte ui
         updateUI(e.target.value);
 
@@ -83,7 +83,13 @@ function updateUI(item) {
     const isEmpty = JSON.parse(localStorage.getItem("todos")).length === 0;
     if(isEmpty) {
         $(".todo-items").innerHTML = "";
+        try {
+            $(".empty").display = "none";
+        } catch {
+            
+        }
     }
+
     $(".todo-items").appendChild(li);
     const check = li.querySelector(".check");
 
